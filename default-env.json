@@ -1,0 +1,63 @@
+{
+    "VCAP_SERVICES": {
+        "xsuaa": [
+            {
+                "name": "DemoVaeesApp-xsuaa-service",
+                "label": "xsuaa",
+                "tags": [
+                    "xsuaa"
+                ],
+                "credentials": {
+                    "apiurl": "https://api.authentication.us10.hana.ondemand.com",
+                    "clientid": "sb-demovaeesapp!t32960",
+                    "clientsecret": "M0S2tH2M+8wwDzW8aLLc2K5uyaQ=",
+                    "credential-type": "instance-secret",
+                    "identityzone": "efd86134trial",
+                    "identityzoneid": "84fed8a4-3d83-447d-ba7e-c9fefdaf4668",
+                    "sburl": "https://internal-xsuaa.authentication.us10.hana.ondemand.com",
+                    "subaccountid": "84fed8a4-3d83-447d-ba7e-c9fefdaf4668",
+                    "tenantid": "84fed8a4-3d83-447d-ba7e-c9fefdaf4668",
+                    "tenantmode": "dedicated",
+                    "uaadomain": "authentication.us10.hana.ondemand.com",
+                    "url": "https://efd86134trial.authentication.us10.hana.ondemand.com",
+                    "verificationkey": "-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzAnOSCGpSml4e6En02LZvpn4JAj1qwbV+hofw8z5hxBPYl9D8POmwIZjMkftTDKpVAOoz4Np/t8/BWH6Sde3VpB8F+2HBXjwmFwmlb6KIHznEn+nOy9k+IaJxrbJx60yMiQjP4nQvlbTpiIceonA6DFp+8/9S8Qmz4HmEtxvdrYh2PeVw1mNLxRbrFH3VtOqtrL68WH3hbTZypZx7iZFUOWnNGkVrKYarYD/qdzXQzU1osvKM67ESjThWAYZZnN9GR9pVolvRxvlCQkNlCCmDhbZmfrefMwpuTjdEva1umdF9Ih50ide5nvl+u2vGTurJyR+FeEFkW+g+NysnA0DiQIDAQAB-----END PUBLIC KEY-----",
+                    "xsappname": "demovaeesapp!t32960",
+                    "zoneid": "84fed8a4-3d83-447d-ba7e-c9fefdaf4668"
+                }
+            }
+        ],
+        "hana": [
+            {
+                "name": "DemoVaeesApp-hdiDemoVaeesApp-db-deployer-ws-kz5cl",
+                "instance_name": "DemoVaeesApp-hdiDemoVaeesApp-db-deployer-ws-kz5cl",
+                "label": "hana",
+                "tags": [
+                    "hana",
+                    "database",
+                    "relational",
+                    "mta-resource-name:DemoVaeesApp-db",
+                    "endpoint:https://api.cf.us10.hana.ondemand.com",
+                    "org:efd86134trial",
+                    "space:dev"
+                ],
+                "plan": "hdi-shared",
+                "credentials": {
+                    "certificate": "-----BEGIN CERTIFICATE-----\nMIIDrzCCApegAwIBAgIQCDvgVpBCRrGhdWrJWZHHSjANBgkqhkiG9w0BAQUFADBh\nMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3\nd3cuZGlnaWNlcnQuY29tMSAwHgYDVQQDExdEaWdpQ2VydCBHbG9iYWwgUm9vdCBD\nQTAeFw0wNjExMTAwMDAwMDBaFw0zMTExMTAwMDAwMDBaMGExCzAJBgNVBAYTAlVT\nMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5j\nb20xIDAeBgNVBAMTF0RpZ2lDZXJ0IEdsb2JhbCBSb290IENBMIIBIjANBgkqhkiG\n9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4jvhEXLeqKTTo1eqUKKPC3eQyaKl7hLOllsB\nCSDMAZOnTjC3U/dDxGkAV53ijSLdhwZAAIEJzs4bg7/fzTtxRuLWZscFs3YnFo97\nnh6Vfe63SKMI2tavegw5BmV/Sl0fvBf4q77uKNd0f3p4mVmFaG5cIzJLv07A6Fpt\n43C/dxC//AH2hdmoRBBYMql1GNXRor5H4idq9Joz+EkIYIvUX7Q6hL+hqkpMfT7P\nT19sdl6gSzeRntwi5m3OFBqOasv+zbMUZBfHWymeMr/y7vrTC0LUq7dBMtoM1O/4\ngdW7jVg/tRvoSSiicNoxBN33shbyTApOB6jtSj1etX+jkMOvJwIDAQABo2MwYTAO\nBgNVHQ8BAf8EBAMCAYYwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQUA95QNVbR\nTLtm8KPiGxvDl7I90VUwHwYDVR0jBBgwFoAUA95QNVbRTLtm8KPiGxvDl7I90VUw\nDQYJKoZIhvcNAQEFBQADggEBAMucN6pIExIK+t1EnE9SsPTfrgT1eXkIoyQY/Esr\nhMAtudXH/vTBH1jLuG2cenTnmCmrEbXjcKChzUyImZOMkXDiqw8cvpOp/2PV5Adg\n06O/nVsJ8dWO41P0jmP6P6fbtGbfYmbW0W5BjfIttep3Sp+dWOIrWcBAI+0tKIJF\nPnlUkiaY4IBIqDfv8NZ5YBberOgOzW6sRBc4L0na4UU+Krk2U886UAb3LujEV0ls\nYSEY1QSteDwsOoBrp+uvFRTp2InBuThs4pFsiv9kuXclVzDAGySj4dzp30d8tbQk\nCAUw7C29C79Fv1C5qfPrmAESrciIxpg0X40KPMbp1ZWVbd4=\n-----END CERTIFICATE-----",
+                    "driver": "com.sap.db.jdbc.Driver",
+                    "hdi_password": "St4x4MmJwRyOpyGNRKDb3UjBvoQ6b.iT6nOGVW5CGwAjZ8Kv21rMeDEgqlDoCV6Oyf68S_4PamhfbNPK4Q0SFMRwCAMXO5y1j_2IyhXXYpT00PcljHRZWf08UB0TFu.V",
+                    "hdi_user": "DEMOVAEESAPP_HDI_DEMOVAEESAPP_DB_DEPLOYER_1_5BBAB9J7IWFW5QSXD8NJ7H95P_DT",
+                    "host": "297c4eae-6ed5-4120-8d1f-634af2c795bf.hana.trial-us10.hanacloud.ondemand.com",
+                    "password": "Nn7-ThE0C5o9MvJQYXhI8x56zAjkfmearzrQ10UfGM6JVqHuNS2ij24Wl8Vt9uzzVxb2cTjO61Nql2Ixdaz0pO8e9b.IX1G_QefXIwcpl9tVqfokCHwzXPl6h_QV10KE",
+                    "port": "443",
+                    "schema": "DEMOVAEESAPP_HDI_DEMOVAEESAPP_DB_DEPLOYER_1",
+                    "service_key_name": "SharedDevKey",
+                    "url": "jdbc:sap://297c4eae-6ed5-4120-8d1f-634af2c795bf.hana.trial-us10.hanacloud.ondemand.com:443?encrypt=true&validateCertificate=true&currentschema=DEMOVAEESAPP_HDI_DEMOVAEESAPP_DB_DEPLOYER_1",
+                    "user": "DEMOVAEESAPP_HDI_DEMOVAEESAPP_DB_DEPLOYER_1_5BBAB9J7IWFW5QSXD8NJ7H95P_RT",
+                    "encrypt": true,
+                    "sslValidateCertificate": false,
+                    "pooling": true
+                }
+            }
+        ]
+    }
+}

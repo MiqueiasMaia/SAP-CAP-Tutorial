@@ -1,60 +1,79 @@
-## Generated mta.yaml based on template version 0.4.0
-## appName = DemoVaeesApp
-## language=nodejs; multitenant=false
-## approuter=
 _schema-version: '3.1'
 ID: DemoVaeesApp
+description: A simple CAP project.
 version: 1.0.0
-description: "A simple CAP project."
+modules:
+  - name: DemoVaeesApp-srv
+    type: nodejs
+    path: srv
+    requires:
+      - name: DemoVaeesApp-db
+      - name: uaa_DemoVaeesApp
+    provides:
+      - name: srv-api
+        properties:
+          srv-url: '${default-url}'
+    parameters:
+      buildpack: nodejs_buildpack
+  - name: DemoVaeesApp-db-deployer
+    type: hdb
+    path: db
+    requires:
+      - name: DemoVaeesApp-db
+    parameters:
+      buildpack: nodejs_buildpack
+  - name: app
+    type: approuter.nodejs
+    path: app
+    requires:
+      - name: DemoVaeesApp_html_repo_runtime
+      - name: uaa_DemoVaeesApp
+      - name: srv-api
+        group: destinations
+        properties:
+          name: srv-api
+          url: '~{srv-url}'
+          forwardAuthToken: true
+    parameters:
+      disk-quota: 256M
+      memory: 256M
+  - name: DemoVaeesApp_ui_deployer
+    type: com.sap.application.content
+    path: .
+    requires:
+      - name: DemoVaeesApp_html_repo_host
+        parameters:
+          content-target: true
+resources:
+  - name: DemoVaeesApp-db
+    type: com.sap.xs.hdi-container
+    parameters:
+      service: hana
+      service-plan: hdi-shared
+    properties:
+      hdi-service-name: '${service-name}'
+  - name: DemoVaeesApp_html_repo_runtime
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-plan: app-runtime
+  - name: uaa_DemoVaeesApp
+    type: org.cloudfoundry.managed-service
+    parameters:
+      path: ./xs-security.json
+      service: xsuaa
+      service-name: DemoVaeesApp-xsuaa-service
+      service-plan: application
+  - name: DemoVaeesApp_html_repo_host
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-plan: app-host
 parameters:
   enable-parallel-deployments: true
-   
 build-parameters:
   before-all:
-   - builder: custom
-     commands:
-      - npm install --production
-      - npx -p @sap/cds-dk cds build --production
-
-modules:
- # --------------------- SERVER MODULE ------------------------
- - name: DemoVaeesApp-srv
- # ------------------------------------------------------------
-   type: nodejs
-   path: srv
-   parameters:
-     buildpack: nodejs_buildpack
-   requires:
-    # Resources extracted from CAP configuration
-    - name: DemoVaeesApp-db
-   provides:
-    - name: srv-api      # required by consumers of CAP services (e.g. approuter)
-      properties:
-        srv-url: ${default-url}
-
- # -------------------- SIDECAR MODULE ------------------------
- - name: DemoVaeesApp-db-deployer
- # ------------------------------------------------------------
-   type: hdb
-   path: db  
-   parameters:
-     buildpack: nodejs_buildpack
-   requires:
-    # 'hana' and 'xsuaa' resources extracted from CAP configuration
-    - name: DemoVaeesApp-db
-
-
-resources:
- # services extracted from CAP configuration
- # 'service-plan' can be configured via 'cds.requires.<name>.vcap.plan'
-# ------------------------------------------------------------
- - name: DemoVaeesApp-db
-# ------------------------------------------------------------
-   type: com.sap.xs.hdi-container
-   parameters:
-     service: hana  # or 'hanatrial' on trial landscapes
-     service-plan: hdi-shared
-   properties:
-     hdi-service-name: ${service-name}
-
-
+    - builder: custom
+      commands:
+        - npm install --production
+        - npx -p @sap/cds-dk cds build --production
