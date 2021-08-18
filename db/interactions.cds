@@ -1,4 +1,8 @@
 //this interaction with the data base is something like a migration that runs and build tables in db
+
+//cds means Core Data Services. This enable persistence and services using declarative language.
+//this code will be translated to SQLDDL language after run 'cds build' command
+
 namespace app.interactions;
 
 using {Country} from '@sap/cds/common';

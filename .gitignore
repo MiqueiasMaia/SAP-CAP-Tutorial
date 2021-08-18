@@ -1,4 +1,4 @@
 
 # auto generated wildcard
-.env
+db/.env
 node_modules
