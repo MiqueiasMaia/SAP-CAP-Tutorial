@@ -1,5 +1,5 @@
 using app.interactions from '../db/interactions';
-@requires: 'authenticated.user'
+@requires: 'authenticated-user'
 
 service CatalogService {
 
